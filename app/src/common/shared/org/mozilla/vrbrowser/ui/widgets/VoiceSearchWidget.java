@@ -180,7 +180,7 @@ public class VoiceSearchWidget extends UIWidget implements WidgetManagerDelegate
                             float confidence = ((STTResult)aPayload).mConfidence;
                             if (mDelegate != null)
                                 mDelegate.OnVoiceSearchResult(transcription, confidence);
-                            hide();
+                            hide(true);
                             break;
                         case START_LISTEN:
                             // Handle when the api successfully opened the microphone and started listening
@@ -267,8 +267,8 @@ public class VoiceSearchWidget extends UIWidget implements WidgetManagerDelegate
     }
 
     @Override
-    public void hide() {
-        super.hide();
+    public void hide(boolean aRemove) {
+        super.hide(aRemove);
 
         mMozillaSpeechService.removeListener(mVoiceSearchListener);
         stopVoiceSearch();
@@ -372,7 +372,7 @@ public class VoiceSearchWidget extends UIWidget implements WidgetManagerDelegate
         }
 
         if (isVisible() && shouldHide) {
-            hide();
+            hide(true);
         }
     }
 

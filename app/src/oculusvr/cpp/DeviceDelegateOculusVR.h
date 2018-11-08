@@ -41,6 +41,9 @@ public:
   void StartFrame() override;
   void BindEye(const device::Eye aWhich) override;
   void EndFrame(const bool aDiscard) override;
+  VRLayerQuadPtr CreateQuadLayer(int32_t aWidth, int32_t aHeight) override;
+  VRLayerCubePtr CreateCubeLayer(int32_t aWidth, int32_t aHeight) override;
+  void DeleteLayer(const VRLayerPtr& aLayer) override;
   // Custom methods for NativeActivity render loop based devices.
   void EnterVR(const crow::BrowserEGLContext& aEGLContext);
   void LeaveVR();

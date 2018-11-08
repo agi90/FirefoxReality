@@ -17,6 +17,10 @@
 
 namespace crow {
 
+
+class VRLayerQuad;
+typedef std::shared_ptr<VRLayerQuad> VRLayerQuadPtr;
+
 class Quad;
 typedef std::shared_ptr<Quad> QuadPtr;
 
@@ -27,7 +31,7 @@ public:
     AspectFit,
     AspectFill,
   };
-  static QuadPtr Create(vrb::CreationContextPtr aContext, const vrb::Vector& aMin, const vrb::Vector& aMax);
+  static QuadPtr Create(vrb::CreationContextPtr aContext, const vrb::Vector& aMin, const vrb::Vector& aMax, const VRLayerQuadPtr& aLayer = nullptr);
   static QuadPtr Create(vrb::CreationContextPtr aContext, const float aWorldWidth, const float aWorldHeight);
   static vrb::GeometryPtr CreateGeometry(vrb::CreationContextPtr aContext, const vrb::Vector& aMin, const vrb::Vector& aMax);
   static vrb::GeometryPtr CreateGeometry(vrb::CreationContextPtr aContext, const float aWorldWidth, const float aWorldHeight);

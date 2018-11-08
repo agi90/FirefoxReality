@@ -318,9 +318,7 @@ public class MediaControlsWidget extends UIWidget implements MediaElement.Delega
 
     @Override
     public void onFullscreenChange(MediaElement mediaElement, boolean fullscreen) {
-        if (!fullscreen) {
-            hide();
-        }
+
     }
 
     @Override

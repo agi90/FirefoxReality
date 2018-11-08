@@ -91,7 +91,7 @@ public class CrashDialogWidget extends UIWidget implements WidgetManagerDelegate
                 mAudio.playSound(AudioEngine.Sound.CLICK);
             }
 
-            hide();
+            hide(true);
 
             if(mCrashDialogDelegate != null) {
                 mCrashDialogDelegate.onSendData();
@@ -142,8 +142,8 @@ public class CrashDialogWidget extends UIWidget implements WidgetManagerDelegate
     }
 
     @Override
-    public void hide() {
-        super.hide();
+    public void hide(boolean aRemove) {
+        super.hide(aRemove);
 
         mWidgetManager.popWorldBrightness(this);
     }

@@ -184,7 +184,7 @@ public class DeveloperOptionsWidget extends UIWidget {
     }
 
     private void showRestartDialog() {
-        hide();
+        hide(true);
 
         UIWidget widget = getChild(mRestartDialogHandle);
         if (widget == null) {

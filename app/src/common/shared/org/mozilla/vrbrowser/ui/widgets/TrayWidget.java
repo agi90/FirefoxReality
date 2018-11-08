@@ -109,7 +109,6 @@ public class TrayWidget extends UIWidget implements SessionStore.SessionChangeLi
         aPlacement.parentAnchorY = 0.5f;
         aPlacement.rotationAxisX = 1.0f;
         aPlacement.rotation = -45.0f;
-        aPlacement.opaque = false;
     }
 
     @Override
@@ -158,7 +157,7 @@ public class TrayWidget extends UIWidget implements SessionStore.SessionChangeLi
         }
 
         if (widget.isVisible()) {
-            widget.hide();
+            widget.hide(true);
         } else {
             widget.show();
         }
@@ -173,7 +172,7 @@ public class TrayWidget extends UIWidget implements SessionStore.SessionChangeLi
     }
 
     @Override
-    public void hide() {
+    public void hide(boolean aRemove) {
         if (mWidgetPlacement.visible) {
             mWidgetPlacement.visible = false;
             mWidgetManager.removeWidget(this);
