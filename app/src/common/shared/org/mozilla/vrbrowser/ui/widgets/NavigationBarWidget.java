@@ -27,6 +27,7 @@ import org.mozilla.vrbrowser.audio.AudioEngine;
 import org.mozilla.vrbrowser.browser.SessionStore;
 import org.mozilla.vrbrowser.browser.SettingsStore;
 import org.mozilla.vrbrowser.search.SearchEngineWrapper;
+import org.mozilla.vrbrowser.ui.widgets.dialogs.VoiceSearchWidget;
 import org.mozilla.vrbrowser.utils.AnimationHelper;
 import org.mozilla.vrbrowser.ui.views.CustomUIButton;
 import org.mozilla.vrbrowser.ui.views.NavigationURLBar;

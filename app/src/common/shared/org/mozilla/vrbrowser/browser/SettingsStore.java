@@ -11,6 +11,7 @@ import org.mozilla.geckoview.GeckoSessionSettings;
 import org.mozilla.telemetry.TelemetryHolder;
 import org.mozilla.vrbrowser.R;
 import org.mozilla.vrbrowser.telemetry.TelemetryWrapper;
+import org.mozilla.vrbrowser.utils.LocaleUtils;
 
 import static org.mozilla.vrbrowser.utils.ServoUtils.isServoAvailable;
 
@@ -302,6 +303,17 @@ public class SettingsStore {
     public void setMSAALevel(int level) {
         SharedPreferences.Editor editor = mPrefs.edit();
         editor.putInt(mContext.getString(R.string.settings_key_msaa), level);
+        editor.commit();
+    }
+
+    public String getVoiceSearchLanguage() {
+        return mPrefs.getString(
+                mContext.getString(R.string.settings_key_voice_search_language), LocaleUtils.getCurrentLocale());
+    }
+
+    public void setVoiceSearchLanguage(String language) {
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putString(mContext.getString(R.string.settings_key_voice_search_language), language);
         editor.commit();
     }
 

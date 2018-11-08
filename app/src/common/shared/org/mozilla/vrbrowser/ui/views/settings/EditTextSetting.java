@@ -1,4 +1,4 @@
-package org.mozilla.vrbrowser.ui.views;
+package org.mozilla.vrbrowser.ui.views.settings;
 
 import android.content.Context;
 import android.text.Editable;
@@ -7,15 +7,15 @@ import android.util.AttributeSet;
 import android.view.View;
 import org.mozilla.vrbrowser.R;
 
-public class DeveloperOptionsEditText extends android.support.v7.widget.AppCompatEditText {
+public class EditTextSetting extends android.support.v7.widget.AppCompatEditText {
 
-    public DeveloperOptionsEditText(Context context, AttributeSet attrs) {
+    public EditTextSetting(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         initialize();
     }
 
-    public DeveloperOptionsEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public EditTextSetting(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         initialize();

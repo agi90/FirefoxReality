@@ -21,6 +21,7 @@
     <string name="settings_key_env" translatable="false">settings_env</string>
     <string name="settings_key_pointer_color" translatable="false">settings_pointer_color</string>
     <string name="settings_key_msaa" translatable="false">settings_msaa</string>
+    <string name="settings_key_voice_search_language" translatable="false">settings_voice_search_language</string>
     <string name="private_browsing_support_url" translatable="false">https://support.mozilla.org/kb/private-mode-firefox-reality</string>
     <string name="settings_key_browser_world_width" translatable="false">settings_browser_world_width</string>
     <string name="settings_key_browser_world_height" translatable="false">settings_browser_world_height</string>
@@ -34,6 +35,7 @@
     <string name="app_permission_name" translatable="false">org.mozilla.vrbrowser.CRASH_RECEIVER_PERMISSION</string>
     <string name="developer_options_by" translatable="false">x</string>
     <string name="crash_app_name" translatable="false">FirefoxReality</string>
+    <string name="voice_app_id" translatable="false">fxr</string>
 
     <!-- SEARCH ENGINES -->
     <string name="geolocation_api_url" translatable="false">https://location.services.mozilla.com/v1/country</string>
@@ -51,25 +53,4 @@
     <string name="search_yandex_by" translatable="false">https://yandex.by/search</string>
     <string name="search_yandex_tr" translatable="false">https://yandex.com.tr/search</string>
     <string name="search_yandex_kz" translatable="false">https://yandex.kz/search</string>
-
-    <!-- Settings -->
-    <string-array name="developer_options_environments" translatable="false">
-        <item>@string/developer_options_env_void</item>
-        <item>@string/developer_options_env_cave</item>
-        <item>@string/developer_options_env_meadow</item>
-    </string-array>
-    <string-array name="developer_options_pointer_color_options" translatable="false">
-        <item>@string/developer_options_pointer_white</item>
-        <item>@string/developer_options_pointer_purple</item>
-    </string-array>
-    <string-array name="developer_options_ua_options" translatable="false">
-        <item>@string/developer_options_ua_mobile</item>
-        <item>@string/developer_options_ua_desktop</item>
-        <item>@string/developer_options_ua_vr</item>
-    </string-array>
-    <string-array name="developer_options_msaa_options" translatable="false">
-        <item>@string/developer_options_msaa_disabled</item>
-        <item>@string/developer_options_msaa_2</item>
-        <item>@string/developer_options_msaa_4</item>
-    </string-array>
 </resources>

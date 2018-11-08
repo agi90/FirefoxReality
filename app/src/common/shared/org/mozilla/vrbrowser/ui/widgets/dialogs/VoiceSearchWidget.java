@@ -1,4 +1,4 @@
-package org.mozilla.vrbrowser.ui.widgets;
+package org.mozilla.vrbrowser.ui.widgets.dialogs;
 
 import android.Manifest;
 import android.app.Activity;
@@ -27,7 +27,11 @@ import com.mozilla.speechlibrary.STTResult;
 
 import org.mozilla.vrbrowser.R;
 import org.mozilla.vrbrowser.audio.AudioEngine;
+import org.mozilla.vrbrowser.browser.SettingsStore;
 import org.mozilla.vrbrowser.ui.views.UIButton;
+import org.mozilla.vrbrowser.ui.widgets.UIWidget;
+import org.mozilla.vrbrowser.ui.widgets.WidgetManagerDelegate;
+import org.mozilla.vrbrowser.ui.widgets.WidgetPlacement;
 
 import static org.mozilla.gecko.GeckoAppShell.getApplicationContext;
 
@@ -87,7 +91,7 @@ public class VoiceSearchWidget extends UIWidget implements WidgetManagerDelegate
         mWidgetManager.addPermissionListener(this);
 
         mMozillaSpeechService = MozillaSpeechService.getInstance();
-        mMozillaSpeechService.setProductTag("fxr");
+        mMozillaSpeechService.setProductTag(getContext().getString(R.string.voice_app_id));
         mMozillaSpeechService.storeSamples(false);
         mMozillaSpeechService.storeTranscriptions(false);
 
@@ -219,7 +223,8 @@ public class VoiceSearchWidget extends UIWidget implements WidgetManagerDelegate
             ActivityCompat.requestPermissions((Activity)getContext(), new String[]{Manifest.permission.RECORD_AUDIO},
                     VOICESEARCH_AUDIO_REQUEST_CODE);
         } else {
-            mMozillaSpeechService.setLanguage("en-us");
+            String language = SettingsStore.getInstance(getContext()).getVoiceSearchLanguage();
+            mMozillaSpeechService.setLanguage(language);
             mMozillaSpeechService.start(getApplicationContext());
             mIsSpeechRecognitionRunning = true;
         }
