@@ -13,6 +13,8 @@ import org.mozilla.vrbrowser.R;
 import org.mozilla.vrbrowser.telemetry.TelemetryWrapper;
 import org.mozilla.vrbrowser.utils.LocaleUtils;
 
+import java.util.Arrays;
+
 import static org.mozilla.vrbrowser.utils.ServoUtils.isServoAvailable;
 
 public class SettingsStore {
@@ -307,14 +309,30 @@ public class SettingsStore {
     }
 
     public String getVoiceSearchLanguage() {
-        return mPrefs.getString(
-                mContext.getString(R.string.settings_key_voice_search_language), LocaleUtils.getCurrentLocale());
+        String language = mPrefs.getString(
+                mContext.getString(R.string.settings_key_voice_search_language), null);
+        if (language == null) {
+            return getDefaultVoiceSearchLanguage();
+        }
+        return language;
     }
 
     public void setVoiceSearchLanguage(String language) {
         SharedPreferences.Editor editor = mPrefs.edit();
         editor.putString(mContext.getString(R.string.settings_key_voice_search_language), language);
         editor.commit();
+    }
+
+
+    private String getDefaultVoiceSearchLanguage() {
+        String language = LocaleUtils.getCurrentLocale();
+        String[] supportedLanguages = mContext.getResources().getStringArray(
+                R.array.developer_options_voice_search_languages_values);
+        if (!Arrays.asList(supportedLanguages).contains(language)) {
+            return supportedLanguages[0];
+        }
+
+        return language;
     }
 
 }

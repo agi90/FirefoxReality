@@ -128,7 +128,7 @@ public class RadioGroupSetting extends LinearLayout {
             }
         }
 
-        return -1;
+        return 0;
     }
 
     public int getCheckedRadioButtonId() {
