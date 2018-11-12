@@ -1,6 +1,7 @@
 package org.mozilla.vrbrowser.ui.widgets;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 
@@ -115,5 +116,38 @@ public class VideoProjectionMenuWidget extends MenuWidget {
 
     public @VideoProjectionFlags int getSelectedProjection() {
         return mSelectedProjection;
+    }
+
+    public static int getAutomaticProjection(String aURL) {
+        if (aURL == null) {
+            return -1;
+        }
+
+        Uri uri = Uri.parse(aURL);
+        if (uri == null) {
+            return -1;
+        }
+
+        String projection = uri.getQueryParameter("mozVideoProjection");
+        if (projection == null) {
+            return -1;
+        }
+        projection = projection.toLowerCase();
+
+        if (projection.equals("360")) {
+            return VIDEO_PROJECTION_360;
+        } else if (projection.equals("360s")) {
+            return VIDEO_PROJECTION_360_STEREO;
+        } else if (projection.equals("180")) {
+            return VIDEO_PROJECTION_180;
+        } else if (projection.equals("180lr")) {
+            return VIDEO_PROJECTION_180_STEREO_LEFT_RIGTH;
+        } else if (projection.equals("180tp")) {
+            return VIDEO_PROJECTION_180_STEREO_TOP_BOTTOM;
+        } else if (projection.equals("3d")) {
+            return VIDEO_PROJECTION_3D_SIDE_BY_SIDE;
+        }
+
+        return -1;
     }
 }

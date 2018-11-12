@@ -699,7 +699,10 @@ public class NavigationBarWidget extends UIWidget implements GeckoSession.Naviga
             if (mIsResizing) {
                 exitResizeMode(false);
             }
-
+            int projection = VideoProjectionMenuWidget.getAutomaticProjection(SessionStore.get().getUriFromSession(session));
+            if (projection >= 0) {
+                enterVRVideo(projection);
+            }
         } else {
             if (mIsInVRVideo) {
                 exitVRVideo();
